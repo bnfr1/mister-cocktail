@@ -6,7 +6,7 @@ gem 'font-awesome-sass', '~> 4.2.0'
 gem 'simple_form'
 
 #prepare for heroku
-ruby '2.2.3bund'
+ruby '2.2.3'
 gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
 
