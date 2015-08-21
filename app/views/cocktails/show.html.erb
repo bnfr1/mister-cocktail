@@ -4,11 +4,11 @@
 
   <p>Tudo bem <%= @cocktail.name %> !</p>
   <% @doses.each do |dose| %>
-    <p><%= dose.description %></p>
-    <p><%= dose.ingredient.name %></p>
+    <p><%= dose.description %>
+    <%= dose.ingredient.name %></p>
     <%= link_to "Supprimer la dose", cocktail_dose_path(@cocktail, dose), class: "btn btn-success",
     method: :delete, data: { confirm: "Voulez vous supprimer la dose?" }  %>
-  <% end %>
+  <% end %><br><br>
 
   <%= link_to "Ajouter une dose", new_cocktail_dose_path(@cocktail), class: "btn btn-danger" %>
   <%= link_to "Retour au menu", cocktails_path, class: "btn btn-primary" %>
