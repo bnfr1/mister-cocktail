@@ -8,6 +8,10 @@ gem 'simple_form'
 #aws
 gem 'figaro'
 
+#paperclip
+gem 'aws-sdk', '< 2.0'
+gem 'paperclip'
+
 #prepare for heroku
 ruby '2.2.3'
 gem 'rails_12factor', group: :production
