@@ -1,6 +1,6 @@
 class DosesController < ApplicationController
 
-  before_action :find_dose, :only [:destroy]
+  before_action :find_cocktail, only: [:new, :create, :destroy]
   def index
     @doses = Dose.all
   end
@@ -10,19 +10,26 @@ class DosesController < ApplicationController
   end
 
   def create
-    @dose = Dose.create(dose_params)
+    @dose = @cocktail.doses.build(dose_params)
+    @dose.save
+    # @dose = Dose.create(dose_params)
+    redirect_to cocktail_path(@cocktail)
   end
 
   def destroy
+    @dose = Dose.find(params[:cocktail_id])
+    @dose.destroy
+    redirect_to cocktail_path(@cocktail), :notice => "Your dose has been deleted"
+
   end
 
   private
 
   def dose_params
-    params.require(:dose).permit(:description)
+    params.require(:dose).permit(:description, :cocktail_id, :ingredient_id)
   end
 
-  def find_dose
-     @dose = Dose.find(params[:id])
+  def find_cocktail
+     @cocktail = Cocktail.find(params[:cocktail_id])
   end
 end
