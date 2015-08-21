@@ -5,6 +5,9 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'simple_form'
 
+#aws
+gem 'figaro'
+
 #prepare for heroku
 ruby '2.2.3'
 gem 'rails_12factor', group: :production
